@@ -74,6 +74,24 @@ npm run dev
 - Improved testing coverage
 - Additional performance optimizations
 
+## Screenshots
+
+### Home
+
+![Home](screenshots/posts.png)
+
+### Profile
+
+![Profile](screenshots/profile.png)
+
+### Comments
+
+![Comments](screenshots/comment%20section.png)
+
+### Login
+
+![Login](screenshots/loginpage.png)
+
 ## License
 
 This project is available under the MIT License.
