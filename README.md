@@ -1,4 +1,4 @@
-# Acorn Lab 🌱
+# Acorn Lab 🌰
 
 A full-stack social platform built with React, Express, PostgreSQL, and modern security practices.
 
