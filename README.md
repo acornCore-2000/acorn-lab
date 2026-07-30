@@ -76,9 +76,9 @@ npm run dev
 
 ## Screenshots
 
-### Home
+### Posts
 
-![Home](screenshots/posts.png)
+![Posts](screenshots/posts.png)
 
 ### Profile
 
@@ -86,11 +86,15 @@ npm run dev
 
 ### Comments
 
-![Comments](screenshots/comment%20section.png)
+![Comments](screenshots/comment-section.png)
 
 ### Login
 
-![Login](screenshots/loginpage.png)
+![Login](screenshots/login-page.png)
+
+### Mobile View
+
+![Mobile View](screenshots/mobile-view.png)
 
 ## License
 
