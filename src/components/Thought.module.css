@@ -1,0 +1,166 @@
+.thoughtContainer {
+  width: 100%;
+  max-width: 620px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px 14px;
+  margin: 8px auto;
+}
+
+.thoughtHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.avatarContainer {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.thoughtHeader p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.thoughtHeader p:last-child {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.thoughtMain {
+  padding: 2px 0 8px;
+}
+
+.thoughtMain p {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.thoughtDate {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.isEdited {
+  opacity: 0.8;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.mobileLeftActions,
+.rightActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.buttons button,
+.buttons a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 32px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.buttons button:hover,
+.buttons a:hover {
+  background: var(--bg);
+}
+
+.rightActions button {
+  color: #007aff;
+}
+
+textarea {
+  width: 100%;
+  min-height: 90px;
+  resize: none;
+  border-radius: 14px;
+  padding: 12px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #007aff;
+}
+
+.thoughtContainer > button {
+  width: 100%;
+  height: 38px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 12px;
+  background: #007aff;
+  color: white;
+  font-weight: 600;
+}
+
+.thoughtContainer > div > button {
+  width: 34px;
+  height: 34px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text);
+}
+
+@media (max-width: 600px) {
+  .thoughtContainer {
+    margin: 6px 8px;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .thoughtMain p {
+    font-size: 0.98rem;
+  }
+
+  .buttons button,
+  .buttons a {
+    font-size: 0.78rem;
+    padding: 0 8px;
+  }
+}

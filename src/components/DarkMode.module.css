@@ -1,0 +1,47 @@
+.toggleButton {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.toggleButton:hover {
+  background: var(--bg);
+}
+
+.toggleButton:active {
+  transform: scale(0.97);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .toggleButton {
+    height: 42px;
+    padding: 0 14px;
+    gap: 8px;
+    font-size: 0.95rem;
+  }
+
+  .iconWrapper svg {
+    width: 18px;
+    height: 18px;
+  }
+}

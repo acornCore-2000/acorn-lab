@@ -1,0 +1,78 @@
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #111;
+  --text-muted: #6b6b6b;
+  --border: rgba(0, 0, 0, 0.08);
+  --primary: #007aff;
+  --primary-hover: #0066d6;
+}
+
+[data-theme="dark"] {
+  --bg: #0f0f10;
+  --card: #1c1c1e;
+  --text: #ffffff;
+  --text-muted: #a1a1a1;
+  --border: rgba(255, 255, 255, 0.08);
+  --primary: #0a84ff;
+  --primary-hover: #409cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* global links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* global button reset (important for your issue) */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* smooth transitions everywhere */
+* {
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* selection style */
+::selection {
+  background: var(--primary);
+  color: white;
+}

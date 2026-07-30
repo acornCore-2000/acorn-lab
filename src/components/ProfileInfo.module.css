@@ -1,0 +1,226 @@
+.profileLayout {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.profileContainer {
+  width: min(520px, 100%);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  color: var(--text);
+}
+
+.profileContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profileContainer label {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.profileContainer input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+  font-family: inherit;
+}
+
+.profileContainer input:focus {
+  border-color: var(--primary);
+}
+
+.errMsg {
+  margin: 4px 0;
+  color: #ff3b30;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.profileContainer form button,
+.editButton,
+.changeAvatarButton,
+.closeButton {
+  height: 46px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.profileContainer form button[type="submit"] {
+  margin-top: 12px;
+  border: none;
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.profileContainer form button[type="submit"]:hover {
+  background: var(--primary-hover);
+}
+
+.profileContainer form button[type="button"] {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profileAvatar {
+  display: block;
+  width: 120px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+.profileContainer h2 {
+  margin: 0;
+  text-align: center;
+  color: var(--text);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.profileContainer h3 {
+  margin: 8px 0;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.profileContainer p {
+  text-align: center;
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.editButton,
+.changeAvatarButton {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.editButton {
+  border: none;
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.editButton:hover {
+  background: var(--primary-hover);
+}
+
+.changeAvatarButton {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.changeAvatarButton:hover {
+  background: var(--bg);
+}
+.backBtn {
+  width: 100%;
+  height: 46px;
+  margin-top: 12px;
+  
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  text-decoration: underline;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+}
+
+
+.profileContainer > div > button:not(.editButton):not(.changeAvatarButton) {
+  width: 100%;
+  height: 46px;
+  margin-top: 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.profileContainer > div > button:not(.editButton):not(.changeAvatarButton):hover {
+  background: var(--bg);
+}
+
+.avatarEditorPanel {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.closeButton {
+  width: 100%;
+  margin-top: 12px;
+  border: none;
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+}
+
+@media (max-width: 600px) {
+  .profileLayout {
+    padding: 20px 12px;
+  }
+
+  .profileContainer {
+    padding: 22px 16px;
+    border-radius: 20px;
+  }
+
+  .profileAvatar {
+    width: 100px !important;
+    height: 100px;
+  }
+
+  .profileContainer h2 {
+    font-size: 1.3rem;
+  }
+
+  .profileContainer p {
+    font-size: 1rem;
+  }
+
+  .profileContainer input {
+    height: 50px;
+    font-size: 1.05rem;
+  }
+}

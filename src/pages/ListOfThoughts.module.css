@@ -1,0 +1,40 @@
+.container {
+  min-height: calc(100vh - 80px);
+  padding: 24px;
+  background: var(--bg);
+}
+
+.feed {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 120px;
+}
+
+.container > form {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+
+  .feed {
+    max-width: 100%;
+    gap: 14px;
+    padding-bottom: 140px;
+  }
+
+  .container > form {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+}

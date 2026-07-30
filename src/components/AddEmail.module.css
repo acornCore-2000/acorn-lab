@@ -1,0 +1,154 @@
+.wrapper {
+  width: 100%;
+}
+
+.viewCard,
+.editCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.emailText {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.label {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1.05rem;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--text-secondary);
+}
+
+.input:focus {
+  border-color: var(--primary);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.primaryButton,
+.secondaryButton {
+  height: 46px;
+  padding: 0 20px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.primaryButton {
+  border: none;
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.primaryButton:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.secondaryButton {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.secondaryButton:hover {
+  background: var(--bg);
+}
+
+.successText {
+  margin: 0;
+  color: var(--success);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.errorText {
+  margin: 0;
+  color: var(--danger);
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.infoText {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .row {
+    padding: 14px;
+  }
+
+  .emailText {
+    font-size: 1rem;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    height: 50px;
+  }
+}

@@ -1,0 +1,152 @@
+.wrapper {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.openButton {
+  width: 100%;
+  height: 52px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.openButton:hover {
+  background: var(--bg);
+}
+
+.wrapper > button:not(.openButton) {
+  margin-top: 10px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 8px 8px 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.input {
+  flex: 1;
+  height: 44px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.input::placeholder {
+  color: var(--text-secondary);
+}
+
+.emojiButton {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.emojiButton:hover {
+  background: var(--card);
+}
+
+.emojiPicker {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.primaryButton,
+.secondaryButton {
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primaryButton {
+  border: none;
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.primaryButton:hover {
+  background: var(--primary-hover);
+}
+
+.secondaryButton {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.secondaryButton:hover {
+  background: var(--bg);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 14px;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    height: 50px;
+  }
+
+  .emojiPicker {
+    width: 100%;
+  }
+}

@@ -1,0 +1,108 @@
+.homeContainer {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background: var(--bg);
+}
+
+.homeMessage {
+  max-width: 650px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.homeTitle {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+
+.homeButtons {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.homeButtons p {
+  margin: 4px 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.signUpButton,
+.loginButton {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.signUpButton {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.signUpButton:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.loginButton {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.loginButton:hover {
+  background: var(--bg);
+  transform: translateY(-1px);
+}
+
+.homeButtons > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .homeContainer {
+    padding: 16px;
+  }
+
+  .homeMessage {
+    margin-bottom: 28px;
+  }
+
+  .homeTitle {
+    font-size: 2rem;
+  }
+
+  .homeButtons {
+    padding: 24px 18px;
+  }
+
+  .signUpButton,
+  .loginButton {
+    height: 50px;
+  }
+}

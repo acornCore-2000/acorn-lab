@@ -1,0 +1,135 @@
+.signupWrapper {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background: var(--bg);
+}
+
+.signupBox {
+  width: 100%;
+  max-width: 420px;
+  padding: 34px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.signupBox form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.signupBox input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1.05rem;
+  outline: none;
+}
+
+.signupBox input::placeholder {
+  color: var(--text-secondary);
+}
+
+.signupBox input:focus {
+  border-color: var(--primary);
+}
+
+.signupBox svg {
+  align-self: flex-end;
+  margin-bottom: -42px;
+  margin-right: 16px;
+  z-index: 2;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.errorMsg {
+  margin: -8px 0 0;
+  color: var(--danger);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.buttons p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.buttons button {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 14px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.buttons button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.buttons > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.loginLink {
+  margin: 12px 0 0;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.loginLink a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.loginLink a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .signupWrapper {
+    padding: 16px;
+  }
+
+  .signupBox {
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .signupBox input {
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .buttons button {
+    height: 50px;
+  }
+}
