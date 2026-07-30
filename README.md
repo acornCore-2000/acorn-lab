@@ -1,25 +1,79 @@
-# React + Vite
+# Acorn Lab 🌱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack social platform built with React, Express, PostgreSQL, and modern security practices.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Acorn Lab is a full-stack social platform where users can create, manage, and interact with thoughts through a secure and real-time experience.
 
-## React Compiler
+The project focuses on authentication, user management, real-time communication, and scalable backend architecture.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- User authentication and authorization
+- JWT access token and refresh token system
+- Secure password hashing with bcrypt
+- Protected routes
+- User profile management
+- Avatar upload with AWS S3
+- Real-time comments using Socket.IO
+- Dark mode support
+- PostgreSQL database integration
+- Rate limiting and security middleware
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
 
+### Frontend
 
+- React
+- Vite
+- JavaScript
+- CSS Modules
+- Axios
+- React Router
+- Lucide React
 
-استفاده از لوگوی اماده 
-کتابخانه lucide-react 
-`npm install lucide-react‍`
-بعد :
-`import {Brain} from "lucide-react";`
-`<button><Brain size={24}>brain</button>`
+### Backend
+
+- Node.js
+- Express
+- PostgreSQL
+- Socket.IO
+
+### Security
+
+- JWT authentication
+- HTTP-only cookies
+- bcrypt password hashing
+- Helmet security middleware
+- Express Rate Limit
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/acornCore-2000/acorn-lab.git
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+## Future Improvements
+
+- More advanced user interactions
+- Improved testing coverage
+- Additional performance optimizations
+
+## License
+
+This project is available under the MIT License.
