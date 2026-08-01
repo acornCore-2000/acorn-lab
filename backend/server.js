@@ -1,3 +1,4 @@
+import errorHandler from "./middleware/errorHandler.js";
 import { app } from "./app.js";
 import thoughtsRouter from "./routes/thoughts.js";
 import authRouter from "./routes/auth.js";
@@ -16,6 +17,7 @@ app.use(commentRouter);
 app.use(darkmodeRouter);
 app.use(settingsRouter);
 app.use(uploadAvatarRouter);
+app.use(errorHandler);
 
 
 const server = createServer(app);

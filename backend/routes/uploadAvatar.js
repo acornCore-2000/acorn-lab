@@ -18,9 +18,10 @@ const upload = multer({
 
 router.post(
   "/api/upload-avatar",
-  checkAuth, rateLimiter,
+  checkAuth,
+  rateLimiter,
   upload.single("avatar"),
-  async (req, res) => {
+  async (req, res, next) => {
     try {
       if (!req.file) {
         return res.status(400).json({ error: "No file uploaded" });
@@ -73,51 +74,46 @@ router.post(
               }),
             );
           }
-        } catch (err) {
-          console.error("Failed to delete old avatar:", err);
+        } catch (error) {
+          return next(error);
         }
       }
 
-      res.status(201).json({
+      res.status(200).json({
         success: true,
         avatar: avatarUrl,
-        message : "Your avatar has been successfully changed."
+        message: "Your avatar has been successfully changed.",
       });
     } catch (error) {
-      console.error(error);
-
-      res.status(500).json({
-        success: false,
-        error: "Upload failed",
-      });
+      next(error);
     }
   },
 );
 
-router.delete("/api/delete-avatar", checkAuth, async (req, res) => {
+router.delete("/api/delete-avatar", checkAuth, rateLimiter, async (req, res, next) => {
   try {
     const result = await myDB.query("SELECT * FROM users WHERE id = $1", [
       req.user.id,
     ]);
-    
+
     const oldAvatar = result.rows[0].avatar;
-    if(oldAvatar){
+    if (oldAvatar) {
       const oldKey = oldAvatar.split(`${process.env.S3_BUCKET_NAME}/`)[1];
-    await s3.send(
-      new DeleteObjectCommand({
-        Bucket: process.env.S3_BUCKET_NAME,
-        Key: oldKey,
-      }),
+      await s3.send(
+        new DeleteObjectCommand({
+          Bucket: process.env.S3_BUCKET_NAME,
+          Key: oldKey,
+        }),
+      );
+    }
+    const updateAvatar = await myDB.query(
+      "UPDATE users SET avatar=NULL WHERE id=$1 RETURNING *",
+      [req.user.id],
     );
 
-    }
-        const updateAvatar = await myDB.query("UPDATE users SET avatar=NULL WHERE id=$1 RETURNING *", [req.user.id]);
-
-        res.status(200).json({ success: true, user: updateAvatar.rows[0]});
-
+    res.status(200).json({ success: true, user: updateAvatar.rows[0] });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "failed deleting avatar." });
+    next(error);
   }
 });
 

@@ -7,19 +7,18 @@ import { rateLimiter } from "../middleware/rateLimiter.js";
 const router = Router();
 
 
-router.get("/api/fetch-thoughts", checkAuth, async (req, res) => {
+router.get("/api/fetch-thoughts", checkAuth, async (req, res, next) => {
   try {
     const response = await myDB.query(
       "SELECT * FROM fetch_all_data ORDER BY thought_id DESC;",
     );
-    res.status(201).json(response.rows);
+    res.status(200).json(response.rows);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "server failed" });
+    next(error);
   }
 });
 
-router.post("/api/thoughts/add-post", checkAuth, rateLimiter, async (req, res) => {
+router.post("/api/thoughts/add-post", checkAuth, rateLimiter, async (req, res, next) => {
   try {
     const post = req.body.post;
 
@@ -41,12 +40,11 @@ router.post("/api/thoughts/add-post", checkAuth, rateLimiter, async (req, res) =
 
     res.status(201).json(rows[0]);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "server failed" });
+    next(error);
   }
 });
 
-router.delete("/api/thoughts/:id/clear", checkAuth, async (req, res) => {
+router.delete("/api/thoughts/:id/clear", checkAuth, async (req, res, next) => {
   try {
     const id = req.params.id;
     const result = await myDB.query(
@@ -63,13 +61,12 @@ if(result.rowCount === 0){
       console.error("socket error: ", socketError);
     }
     res.status(200).json({ message: "deleted!" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "deleting post failed" });
+  }catch (error) {
+    next(error);
   }
 });
 
-router.put("/api/thoughts/:id/edit", checkAuth, async (req, res) => {
+router.put("/api/thoughts/:id/edit", checkAuth, async (req, res, next) => {
   try {
     const post = req.body.post;
     const id = req.params.id;
@@ -90,12 +87,11 @@ router.put("/api/thoughts/:id/edit", checkAuth, async (req, res) => {
     }
     res.status(201).json(rows[0]);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "server failed" });
+    next(error);
   }
 });
 
-router.post("/api/thought/:id/like", checkAuth, async (req, res) => {
+router.post("/api/thought/:id/like", checkAuth, async (req, res, next) => {
   const id = req.params.id;
   const userId = req.user.id;
   try {
@@ -155,8 +151,7 @@ router.post("/api/thought/:id/like", checkAuth, async (req, res) => {
     }
     res.status(201).json(result.rows);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "failed liking the post!" });
+    next(error);
   }
 });
 

@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 import { myDB } from "../app.js";
 import { OAuth2Client } from "google-auth-library";
 import { randomInt, randomUUID } from "crypto";
-import { json } from "stream/consumers";
 import { rateLimiter } from "../middleware/rateLimiter.js";
 
 const router = Router();
@@ -28,7 +27,7 @@ function checkAuth(req, res, next) {
   }
 }
 
-router.post("/api/logout", async (req, res) => {
+router.post("/api/logout", async (req, res, next) => {
   try {
     const refreshToken = req.cookies.refreshToken;
     if (!refreshToken) {
@@ -44,12 +43,11 @@ router.post("/api/logout", async (req, res) => {
 
     res.json({ message: "logged out" });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({message:"logout failed"})
+    next(error);
   }
 });
 
-router.post("/api/sign-up", async (req, res) => {
+router.post("/api/sign-up", async (req, res, next) => {
   try {
     const { username, password } = req.body;
     const doesExist = await myDB.query(
@@ -104,20 +102,16 @@ router.post("/api/sign-up", async (req, res) => {
         message: "user created.",
         user: { id: user.id, username: user.username },
       });
-      console.log(
-        `your refresh token is : ${refreshToken}, and your access token is ${accessToken}`,
-      );
+
     } else {
       res.status(401).json({ message: "Invalid username or password" });
     }
-  } catch (error) {
-    console.error(error);
-    
-    res.status(409).json({ error: "the user already exists" });
+  }  catch (error) {
+    next(error);
   }
 });
 
-router.post("/api/refresh", async (req, res) => {
+router.post("/api/refresh", async (req, res, next) => {
   try{
 const refreshToken = req.cookies.refreshToken;
 
@@ -179,7 +173,6 @@ if (!refreshToken) {
 
   } catch(error){
    
-      console.error(error);
 
   if (
     error.name === "TokenExpiredError" ||
@@ -188,14 +181,14 @@ if (!refreshToken) {
     return res.sendStatus(403);
   }
 
-  return res.status(500).json({
-    message: "refreshing token failed",
-  });
+
+    next(error);
+  
   }
   
 });
 
-router.post("/api/login", rateLimiter, async (req, res) => {
+router.post("/api/login", rateLimiter, async (req, res, next) => {
   try {
     
     const { username, password } = req.body;
@@ -247,13 +240,12 @@ router.post("/api/login", rateLimiter, async (req, res) => {
     });
 
     res.json({ user: { id: user.id, username: user.username }, cookies:{accessToken: accessToken, refreshToken:refreshToken} });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "login failed" });
+  }  catch (error) {
+    next(error);
   }
 });
 
-router.post("/api/google-login", async (req, res) => {
+router.post("/api/google-login", async (req, res, next) => {
   try {
     const { credential } = req.body;
 
@@ -325,9 +317,8 @@ router.post("/api/google-login", async (req, res) => {
         avatar: user.avatar,
       },
     });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "google login failed" });
+  }  catch (error) {
+    next(error);
   }
 });
 

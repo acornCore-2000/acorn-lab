@@ -6,17 +6,16 @@ import { rateLimiter } from "../middleware/rateLimiter.js";
 
 const router = Router();
 
-router.get("/api/:postId/fetch-comments", checkAuth, async (req, res) => {
+router.get("/api/:postId/fetch-comments", checkAuth, async (req, res, next) => {
   const postId = req.params.postId;
   try {
     const result = await myDB.query(
       "SELECT * FROM comments_users WHERE thought_id = $1 ORDER BY comment_id DESC",
       [postId],
     );
-    res.status(201).json(result.rows);
+    res.status(200).json(result.rows);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "fetching comments failed" });
+    next(error);
   }
 });
 
@@ -24,7 +23,7 @@ router.post(
   "/api/post/:postId/add-comment",
   checkAuth,
   rateLimiter,
-  async (req, res) => {
+  async (req, res, next) => {
     const postId = req.params.postId;
     const comment = req.body.comment;
     const userId = req.user.id;
@@ -43,18 +42,17 @@ router.post(
 
       io.to(`post-${postId}`).emit("new-comment", fetchData.rows);
 
-      res.status(201).json(fetchData.rows);
+      res.status(200).json(fetchData.rows);
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: "adding comments failed" });
-    }
+    next(error);
+  }
   },
 );
 
 router.delete(
   "/api/:postId/comments/:id/delete",
   checkAuth,
-  async (req, res) => {
+  async (req, res, next) => {
     const comment_id = req.params.id;
     const postId = req.params.postId;
 
@@ -80,8 +78,7 @@ router.delete(
       }
       res.status(200).json({ success: true });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: "failed deleting the comment" });
+     next(error);
     }
   },
 );
@@ -89,7 +86,7 @@ router.delete(
 router.put(
   "/api/thought/:postId/comment/:id/edit",
   checkAuth,
-  async (req, res) => {
+  async (req, res, next) => {
     const comment_id = req.params.id;
     const newComment = req.body.newComment;
     const postId = req.params.postId;
@@ -99,7 +96,7 @@ router.put(
         "SELECT * FROM comments WHERE id = $1 AND user_id = $2",
         [comment_id, req.user.id],
       );
-      console.log(commentInfo.rows[0]);
+     
 
       if (commentInfo.rowCount === 0) {
         return res.status(403).json({ error: "not allowed" });
@@ -120,16 +117,15 @@ router.put(
       }
       res.status(201).json(fetchData.rows);
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: "failed editing the comment" });
-    }
+    next(error);
+  }
   },
 );
 
 router.post(
   "/api/thought/:postId/comment/:id/likes",
   checkAuth,
-  async (req, res) => {
+  async (req, res, next) => {
     const commentId = req.params.id;
     const postId = req.params.postId;
     const userId = req.user.id;
@@ -181,9 +177,8 @@ router.post(
       }
       res.status(200).json(newData.rows);
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: "failed liking the post" });
-    }
+    next(error);
+  }
   },
 );
 
