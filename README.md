@@ -98,23 +98,6 @@ cd backend
 npm install
 ```
 
-### Environment Variables
-
-Create a `.env` file inside the `backend` directory.
-
-The following variables are required:
-
-```env
-PORT=
-DATABASE_URL=
-JWT_ACCESS_SECRET=
-JWT_REFRESH_SECRET=
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_REGION=
-AWS_BUCKET_NAME=
-```
-
 ### Run the application
 
 Frontend:
@@ -140,23 +123,23 @@ npm run dev
 
 ### Posts
 
-![Posts](screenshots/posts.png)
+<img src="screenshots/posts.png" width="700"/>
 
 ### Profile
 
-![Profile](screenshots/profile.png)
+<img src="screenshots/profile.png" width="700"/>
 
 ### Comments
 
-![Comments](screenshots/comment-section.png)
+<img src="screenshots/comment-section.png" width="700"/>
 
 ### Login
 
-![Login](screenshots/login-page.png)
+<img src="screenshots/login-page.png" width="400"/>
 
 ### Mobile View
 
-![Mobile View](screenshots/mobile-view.png)
+<img src="screenshots/mobile-view.png" width="300"/>
 
 ## License
 
