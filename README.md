@@ -122,21 +122,20 @@ npm run dev
 ## Screenshots
 
 ### Posts
-
-<img src="screenshots/posts.png" width="700"/>
+<img src="screenshots/posts.png" width="500">
 
 ### Profile
-
-<img src="screenshots/profile.png" width="700"/>
+<img src="screenshots/profile.png" width="500">
 
 ### Comments
+<img src="screenshots/comment-section.png" width="500">
 
-<img src="screenshots/comment-section.png" width="700"/>
+### Login
+<img src="screenshots/login-page.png" width="400">
 
-<p align="center">
-  <img src="screenshots/login-page.png" width="350"/>
-  <img src="screenshots/mobile-view.png" width="250"/>
-</p>
+### Mobile View
+<img src="screenshots/mobile-view.png" width="300">
+
 
 ## License
 
