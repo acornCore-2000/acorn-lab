@@ -133,13 +133,10 @@ npm run dev
 
 <img src="screenshots/comment-section.png" width="700"/>
 
-### Login
-
-<img src="screenshots/login-page.png" width="400"/>
-
-### Mobile View
-
-<img src="screenshots/mobile-view.png" width="300"/>
+<p align="center">
+  <img src="screenshots/login-page.png" width="350"/>
+  <img src="screenshots/mobile-view.png" width="250"/>
+</p>
 
 ## License
 
