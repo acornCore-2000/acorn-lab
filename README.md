@@ -173,6 +173,27 @@ npm run start
 
 ## Screenshots
 
+<p align="center">
+  <a href="screenshots/posts.png">
+    <img src="screenshots/posts.png" alt="Posts page" width="180">
+  </a>
+  <a href="screenshots/profile.png">
+    <img src="screenshots/profile.png" alt="User profile page" width="180">
+  </a>
+  <a href="screenshots/comment-section.png">
+    <img src="screenshots/comment-section.png" alt="Real-time comments section" width="180">
+  </a>
+  <a href="screenshots/login-page.png">
+    <img src="screenshots/login-page.png" alt="Login page" width="180">
+  </a>
+  <a href="screenshots/mobile-view.png">
+    <img src="screenshots/mobile-view.png" alt="Mobile view" width="180">
+  </a>
+</p>
+
+<p align="center">
+  Click an image to view it in full size.
+</p>
 ### Posts
 
 <img src="screenshots/posts.png" alt="Posts page" width="500">
