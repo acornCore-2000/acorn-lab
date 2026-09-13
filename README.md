@@ -1,4 +1,5 @@
 # Acorn Lab 🌰
+
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-339933?logo=node.js)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql)
@@ -17,7 +18,7 @@ Its primary goal is to showcase production-oriented backend design rather than s
 ## Features
 
 - Secure user authentication and authorization
-- JWT access token & refresh token authentication
+- JWT access token and refresh token authentication
 - Refresh token rotation with secure database storage
 - HTTP-only cookie-based authentication
 - Secure password hashing using bcrypt
@@ -78,6 +79,11 @@ Its primary goal is to showcase production-oriented backend design rather than s
 
 ## Installation
 
+### Prerequisites
+
+- Node.js 18+
+- PostgreSQL
+
 ### Clone the repository
 
 ```bash
@@ -96,46 +102,102 @@ npm install
 ```bash
 cd backend
 npm install
+cd ..
+```
+
+### Configure PostgreSQL
+
+1. Create a PostgreSQL database in pgAdmin.
+
+2. Copy the backend environment file:
+
+```bash
+cp backend/.env.example backend/.env
+```
+
+3. Update `backend/.env` with your database and service credentials:
+
+```env
+DB_USER=postgres
+DB_PASSWORD=YOUR_PASSWORD
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=YOUR_DATABASE_NAME
+
+JWT_ACCESS_SECRET=YOUR_ACCESS_SECRET
+JWT_REFRESH_SECRET=YOUR_REFRESH_SECRET
+
+S3_BUCKET_NAME=YOUR_S3_BUCKET
+S3_ENDPOINT=YOUR_S3_ENDPOINT
+S3_ACCESS_KEY=YOUR_S3_ACCESS_KEY
+S3_SECRET_KEY=YOUR_S3_SECRET_KEY
+
+MAILERSEND_API_KEY=YOUR_MAILERSEND_API_KEY
+GOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID
+GOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET
+```
+
+4. Apply the database schema from the project root:
+
+```bash
+psql -U postgres -d YOUR_DATABASE_NAME -f backend/db/schema.sql
+```
+
+### Configure frontend environment variables
+
+```bash
+cp .env.example .env
+```
+
+Update `.env`:
+
+```env
+VITE_API_URL=http://localhost:5000
+VITE_GOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID
 ```
 
 ### Run the application
 
-Frontend:
+Start the frontend from the project root:
 
 ```bash
 npm run dev
 ```
 
-Backend:
+Open a new terminal and start the backend:
 
 ```bash
 cd backend
-npm run dev
+npm run start
 ```
+
+## Screenshots
+
+### Posts
+
+<img src="screenshots/posts.png" alt="Posts page" width="500">
+
+### Profile
+
+<img src="screenshots/profile.png" alt="User profile page" width="500">
+
+### Comments
+
+<img src="screenshots/comment-section.png" alt="Real-time comments section" width="500">
+
+### Login
+
+<img src="screenshots/login-page.png" alt="Login page" width="400">
+
+### Mobile View
+
+<img src="screenshots/mobile-view.png" alt="Mobile view" width="300">
 
 ## Future Improvements
 
 - More advanced user interactions
 - Improved testing coverage
 - Additional performance optimizations
-
-## Screenshots
-
-### Posts
-<img src="screenshots/posts.png" width="500">
-
-### Profile
-<img src="screenshots/profile.png" width="500">
-
-### Comments
-<img src="screenshots/comment-section.png" width="500">
-
-### Login
-<img src="screenshots/login-page.png" width="400">
-
-### Mobile View
-<img src="screenshots/mobile-view.png" width="300">
-
 
 ## License
 
