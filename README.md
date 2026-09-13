@@ -194,25 +194,6 @@ npm run start
 <p align="center">
   Click an image to view it in full size.
 </p>
-### Posts
-
-<img src="screenshots/posts.png" alt="Posts page" width="500">
-
-### Profile
-
-<img src="screenshots/profile.png" alt="User profile page" width="500">
-
-### Comments
-
-<img src="screenshots/comment-section.png" alt="Real-time comments section" width="500">
-
-### Login
-
-<img src="screenshots/login-page.png" alt="Login page" width="400">
-
-### Mobile View
-
-<img src="screenshots/mobile-view.png" alt="Mobile view" width="300">
 
 ## Future Improvements
 
